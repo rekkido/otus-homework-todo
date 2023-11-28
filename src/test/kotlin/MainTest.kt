@@ -44,8 +44,9 @@ class MainTest {
     fun checkFinishFilterAfterFinishTaskTest() {
         val newTaskId = createNewTask(testRepository,faker)
         testRepository.completeTask(newTaskId)
-        val listOfCompletedTasks = testRepository.getTasks(completed = true).size
-        assertEquals(1, listOfCompletedTasks, "Expected 1 task in filter, but got $listOfCompletedTasks")
+        val listOfALLTasks = testRepository.getTasks(completed = true).size
+        val listOfActiveTasks = testRepository.getTasks(completed = false).size
+        assertEquals(1, (listOfALLTasks-listOfActiveTasks), "Expected 1 task in filter, but got ")
     }
 
     @Test

@@ -22,6 +22,7 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+    finalizedBy("allureReport")
 }
 
 tasks.withType<KotlinCompile> {
